@@ -51,19 +51,7 @@ Ans:w初始化全为0，由于参数相同以及输出值都一样，不同的�
     
 6. Can you implement the softmax function using python ?
 Ans:SoftMaxLoss就是一般二分类LogisitcLoss的推广,可用于多分类问题
-基于numy实现softmax功能
+1./(1 + np.exp(-1 * 0))
     
 '''
 
-import numpy as np
- 
-def softmax_np(logits):
-    assert (isinstance(logits, np.ndarray)), 'only numpy is available'
-    exp_value = np.exp(logits)  # 计算指数值
-    dim_ext = np.sum(exp_value, 1).reshape(-1, 1)
-    return exp_value / dim_ext
- 
-x_val = [[1, 2, 3], [3, 2, 2]]
-logits = np.array(x_val)
-s_v = softmax_np(logits)
-print (s_v, np.sum(s_v, 1))
